@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    Actualizar Publicación
+{% endblock %}
+
+{% block header %}
+    {% include "navbar.html" %}
+{% endblock %}
+
+{% block main %}
+    <div class="contenedor">
+
+        <h1>Buscar publicaciones</h1>
+        <div class="formulario">   
+            
+            <form action="{% url 'buscar_publicaciones' %}" method="get">
+                
+                <labeel for="titulo">titulo</label>
+                <input id="titulo" name="titulo" type="text">
+        
+                <input type="submit" value="buscar">
+                </form>
+        </div>
+
+            <ul>
+                {% for publicacion in publicaciones %}
+                <li>
+                    <a href="{% url 'detalle_publicacion' publicacion.pk %}">{{ publicacion.titulo }}</a>
+                    <p>{{ publicacion.fecha }}</p>
+                    <p>Autor: {{ publicacion.autor.username }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+    </div>
+{% endblock %}    
+
+

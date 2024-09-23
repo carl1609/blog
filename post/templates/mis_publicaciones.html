@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+  mis publicaciones
+{% endblock %}
+{% block header %}
+  {%include "navbar.html" %}
+{% endblock%}
+{% block main %}
+  <h2>Mis Publicaciones</h2>
+  <div class="contenedor">     
+
+    <ul>
+      {% for publicacion in publicaciones %}
+      <li>
+        <h3>{{ publicacion.titulo }}</h3>
+        <p>{{ publicacion.contenido }}</p>
+        <a href="{% url 'actualizar_publicacion' publicacion.pk %}">Actualizar</a>
+        <a href="{% url 'borrar_publicacion' publicacion.pk %}">Borrar</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

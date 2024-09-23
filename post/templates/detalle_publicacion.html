@@ -1,0 +1,17 @@
+
+{% extends "base.html" %}
+
+{% block titulo %}
+    Actualizar Publicación
+{% endblock %}
+
+{% block header %}
+    {% include "navbar.html" %}
+{% endblock %}
+
+{% block main %}
+    <h1>{{ publicacion.titulo }}</h1>
+    <p>{{ publicacion.contenido }}</p>
+    <p>Publicado por {{ publicacion.autor }} el {{ publicacion.fecha }}</p>
+    <a href="{% url 'lista_publicaciones' %}">Volver a la lista</a>
+{% endblock%}    

@@ -1,0 +1,38 @@
+
+{% extends "base.html" %}
+
+{% block titulo %}
+    home
+{% endblock %}
+
+{% block header %}
+
+    {% if user.is_authenticated %}
+        <h3> hola {{user.username}} </h3>
+        <a href="{% url 'logout' %}">logout</a>
+    {% else %}
+         
+        <a href="{% url 'login' %}">login</a>
+        <a href="{% url 'registro' %}">Registrarse</a>
+    {% endif %}
+
+    {% include "navbar.html" %}
+
+
+{% endblock %}
+
+{% block main %}
+    <div class="contenedor">
+
+        <h1>Publicaciones</h1>
+        <ul>
+            {% for publicacion in publicaciones %}
+            <li>
+                <a href="{% url 'detalle_publicacion' publicacion.pk %}">{{ publicacion.titulo }}</a>
+                <p>{{ publicacion.fecha }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+

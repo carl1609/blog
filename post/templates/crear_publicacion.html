@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+
+{% block titulo %}
+    Actualizar Publicación
+{% endblock %}
+
+{% block header %}
+    {% include "navbar.html" %}
+{% endblock %}
+
+{% block main %}
+    <div class="formulario">
+        <p>Crear Publicacion</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Crear Publicación</button>
+        </form>
+    </div>
+{% endblock %}    
