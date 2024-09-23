@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'post.middleware.RequestLogMiddleware'
 ]
 
 ROOT_URLCONF = 'tp_3.urls'
@@ -122,5 +123,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 LOGIN_REDIRECT_URL = 'home' #donde quiero que me dirija cuando se logue un usuario
 LOGOUT_REDIRECT_URL = 'home'
